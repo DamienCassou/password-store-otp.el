@@ -174,7 +174,7 @@ primary \"pass otp\" command line verb."
       (error "Couldn't get image from clipboard"))
     (with-temp-buffer
       (condition-case nil
-          (call-process "zbarimg" nil t nil "-q" "--raw"
+          (call-process "zbarimg" nil '(t nil) nil "-q" "--raw"
                         qr-image-filename)
         (error
          (error "It seems you don't have `zbar-tools' installed")))
